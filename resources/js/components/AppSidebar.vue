@@ -14,8 +14,32 @@ import {
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
+import { 
+    LayoutGrid, 
+    Sprout, 
+    Calendar, 
+    BarChart3, 
+    Settings, 
+    BookOpen, 
+    HelpCircle,
+    Leaf,
+    Droplets,
+    Sun,
+    Moon,
+    Monitor
+} from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
+import { useAppearance } from '@/composables/useAppearance';
+
+const { appearance, updateAppearance } = useAppearance();
+
+// Cycle through themes: light -> dark -> system -> light
+function cycleTheme() {
+    const themes = ['light', 'dark', 'system'] as const;
+    const currentIndex = themes.indexOf(appearance.value);
+    const nextIndex = (currentIndex + 1) % themes.length;
+    updateAppearance(themes[nextIndex]);
+}
 
 const mainNavItems: NavItem[] = [
     {
@@ -23,28 +47,68 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'My Gardens',
+        href: '#',
+        icon: Sprout,
+    },
+    {
+        title: 'Planting Calendar',
+        href: '#',
+        icon: Calendar,
+    },
+    {
+        title: 'Growth Tracking',
+        href: '#',
+        icon: BarChart3,
+    },
+    {
+        title: 'Water Management',
+        href: '#',
+        icon: Droplets,
+    },
+    {
+        title: 'Light Monitoring',
+        href: '#',
+        icon: Sun,
+    },
+    {
+        title: 'Plant Library',
+        href: '#',
+        icon: Leaf,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
     {
-        title: 'Github Repo',
-        href: 'https://github.com/laravel/vue-starter-kit',
-        icon: Folder,
+        title: 'Help & Support',
+        href: '#',
+        icon: HelpCircle,
     },
     {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#vue',
+        title: 'Growing Guides',
+        href: '#',
         icon: BookOpen,
+    },
+    {
+        title: 'Settings',
+        href: '/settings',
+        icon: Settings,
+    },
+    {
+        title: 'Growing Setup',
+        href: '/settings/growing-setup',
+        icon: Sprout,
     },
 ];
 </script>
 
 <template>
-    <Sidebar collapsible="icon" variant="inset">
-        <SidebarHeader>
+    <Sidebar collapsible="icon" variant="inset" class="border-r border-sidebar-border/70">
+        <SidebarHeader class="border-b border-sidebar-border/70">
             <SidebarMenu>
                 <SidebarMenuItem>
-                    <SidebarMenuButton size="lg" as-child>
+                    <SidebarMenuButton size="lg" as-child class="hover:bg-green-50 dark:hover:bg-green-900/20">
                         <Link :href="dashboard()">
                             <AppLogo />
                         </Link>
@@ -53,13 +117,38 @@ const footerNavItems: NavItem[] = [
             </SidebarMenu>
         </SidebarHeader>
 
-        <SidebarContent>
-            <NavMain :items="mainNavItems" />
+        <SidebarContent class="px-2 py-4">
+            <div class="space-y-1">
+                <NavMain :items="mainNavItems" />
+            </div>
         </SidebarContent>
 
-        <SidebarFooter>
-            <NavFooter :items="footerNavItems" />
-            <NavUser />
+        <SidebarFooter class="border-t border-sidebar-border/70 p-2">
+            <div class="space-y-1">
+                <NavFooter :items="footerNavItems" />
+            </div>
+            
+            <!-- Theme Toggle -->
+            <div class="mt-3 mb-3">
+                <div class="flex items-center justify-center">
+                    <button
+                        @click="cycleTheme"
+                        class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                        :title="`Current: ${appearance} mode`"
+                    >
+                        <Sun v-if="appearance === 'light'" class="h-4 w-4" />
+                        <Moon v-else-if="appearance === 'dark'" class="h-4 w-4" />
+                        <Monitor v-else class="h-4 w-4" />
+                        <span class="hidden group-data-[collapsible=icon]:hidden">
+                            {{ appearance === 'light' ? 'Light' : appearance === 'dark' ? 'Dark' : 'System' }}
+                        </span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <NavUser />
+            </div>
         </SidebarFooter>
     </Sidebar>
     <slot />

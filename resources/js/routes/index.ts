@@ -137,7 +137,8 @@ logoutForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 logout.form = logoutForm
 
 /**
-* @see routes/web.php:6
+* @see \App\Http\Controllers\DashboardController::home
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/'
 */
 export const home = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -151,7 +152,8 @@ home.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:6
+* @see \App\Http\Controllers\DashboardController::home
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/'
 */
 home.url = (options?: RouteQueryOptions) => {
@@ -159,7 +161,8 @@ home.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:6
+* @see \App\Http\Controllers\DashboardController::home
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/'
 */
 home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -168,7 +171,8 @@ home.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see routes/web.php:6
+* @see \App\Http\Controllers\DashboardController::home
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/'
 */
 home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -177,7 +181,8 @@ home.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see routes/web.php:6
+* @see \App\Http\Controllers\DashboardController::home
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/'
 */
 const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -186,7 +191,8 @@ const homeForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 /**
-* @see routes/web.php:6
+* @see \App\Http\Controllers\DashboardController::home
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/'
 */
 homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -195,7 +201,8 @@ homeForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 })
 
 /**
-* @see routes/web.php:6
+* @see \App\Http\Controllers\DashboardController::home
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/'
 */
 homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -211,7 +218,8 @@ homeForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 home.form = homeForm
 
 /**
-* @see routes/web.php:10
+* @see \App\Http\Controllers\DashboardController::dashboard
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/dashboard'
 */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -225,7 +233,8 @@ dashboard.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
-* @see routes/web.php:10
+* @see \App\Http\Controllers\DashboardController::dashboard
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/dashboard'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -233,7 +242,8 @@ dashboard.url = (options?: RouteQueryOptions) => {
 }
 
 /**
-* @see routes/web.php:10
+* @see \App\Http\Controllers\DashboardController::dashboard
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/dashboard'
 */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -242,7 +252,8 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 
 /**
-* @see routes/web.php:10
+* @see \App\Http\Controllers\DashboardController::dashboard
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/dashboard'
 */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -251,7 +262,8 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
 /**
-* @see routes/web.php:10
+* @see \App\Http\Controllers\DashboardController::dashboard
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/dashboard'
 */
 const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -260,7 +272,8 @@ const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 })
 
 /**
-* @see routes/web.php:10
+* @see \App\Http\Controllers\DashboardController::dashboard
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/dashboard'
 */
 dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -269,7 +282,8 @@ dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 })
 
 /**
-* @see routes/web.php:10
+* @see \App\Http\Controllers\DashboardController::dashboard
+* @see app/Http/Controllers/DashboardController.php:14
 * @route '/dashboard'
 */
 dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -283,6 +297,87 @@ dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 })
 
 dashboard.form = dashboardForm
+
+/**
+* @see \App\Http\Controllers\GrowingSetupController::plantRecommendations
+* @see app/Http/Controllers/GrowingSetupController.php:59
+* @route '/api/plant-recommendations'
+*/
+export const plantRecommendations = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: plantRecommendations.url(options),
+    method: 'get',
+})
+
+plantRecommendations.definition = {
+    methods: ["get","head"],
+    url: '/api/plant-recommendations',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\GrowingSetupController::plantRecommendations
+* @see app/Http/Controllers/GrowingSetupController.php:59
+* @route '/api/plant-recommendations'
+*/
+plantRecommendations.url = (options?: RouteQueryOptions) => {
+    return plantRecommendations.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\GrowingSetupController::plantRecommendations
+* @see app/Http/Controllers/GrowingSetupController.php:59
+* @route '/api/plant-recommendations'
+*/
+plantRecommendations.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: plantRecommendations.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\GrowingSetupController::plantRecommendations
+* @see app/Http/Controllers/GrowingSetupController.php:59
+* @route '/api/plant-recommendations'
+*/
+plantRecommendations.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: plantRecommendations.url(options),
+    method: 'head',
+})
+
+/**
+* @see \App\Http\Controllers\GrowingSetupController::plantRecommendations
+* @see app/Http/Controllers/GrowingSetupController.php:59
+* @route '/api/plant-recommendations'
+*/
+const plantRecommendationsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: plantRecommendations.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\GrowingSetupController::plantRecommendations
+* @see app/Http/Controllers/GrowingSetupController.php:59
+* @route '/api/plant-recommendations'
+*/
+plantRecommendationsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: plantRecommendations.url(options),
+    method: 'get',
+})
+
+/**
+* @see \App\Http\Controllers\GrowingSetupController::plantRecommendations
+* @see app/Http/Controllers/GrowingSetupController.php:59
+* @route '/api/plant-recommendations'
+*/
+plantRecommendationsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: plantRecommendations.url({
+        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+            _method: 'HEAD',
+            ...(options?.query ?? options?.mergeQuery ?? {}),
+        }
+    }),
+    method: 'get',
+})
+
+plantRecommendations.form = plantRecommendationsForm
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::register

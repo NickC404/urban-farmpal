@@ -26,6 +26,32 @@ class User extends Authenticatable
         'address',
         'bio',
         'profile_photo_path',
+        'location',
+        'experience_level',
+        'growing_space_type',
+        'growing_space_size',
+        'interests',
+        'profile_setup_completed',
+        'profile_setup_completed_at',
+        // Growing setup fields
+        'growing_method',
+        'growing_environment',
+        'space_length',
+        'space_width',
+        'space_height',
+        'has_artificial_lighting',
+        'has_heating_system',
+        'has_cooling_system',
+        'has_irrigation_system',
+        'has_ph_monitoring',
+        'has_nutrient_monitoring',
+        'has_weather_station',
+        'climate_zone',
+        'average_temperature',
+        'humidity_level',
+        'sunlight_hours',
+        'growing_setup_completed',
+        'growing_setup_completed_at',
     ];
 
     /**
@@ -48,6 +74,17 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'interests' => 'array',
+            'profile_setup_completed_at' => 'datetime',
+            'growing_setup_completed_at' => 'datetime',
+            // Boolean casts for equipment flags
+            'has_artificial_lighting' => 'boolean',
+            'has_heating_system' => 'boolean',
+            'has_cooling_system' => 'boolean',
+            'has_irrigation_system' => 'boolean',
+            'has_ph_monitoring' => 'boolean',
+            'has_nutrient_monitoring' => 'boolean',
+            'has_weather_station' => 'boolean',
         ];
     }
 }
