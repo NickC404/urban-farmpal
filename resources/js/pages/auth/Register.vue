@@ -5,7 +5,7 @@ import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import AuthBase from '@/layouts/AuthLayout.vue';
+import AuthLayout from '@/layouts/AuthLayout.vue';
 import { login } from '@/routes';
 import { Form, Head } from '@inertiajs/vue3';
 import { LoaderCircle, Eye, EyeOff } from 'lucide-vue-next';
@@ -16,7 +16,7 @@ const showConfirmPassword = ref(false);
 </script>
 
 <template>
-    <AuthBase
+    <AuthLayout
         title="Join Urban FarmPal"
         description="Create your account to start your urban farming journey"
     >
@@ -155,5 +155,5 @@ const showConfirmPassword = ref(false);
                 >
             </div>
         </Form>
-    </AuthBase>
+    </AuthLayout>
 </template>

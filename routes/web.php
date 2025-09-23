@@ -18,5 +18,17 @@ Route::post('profile-setup', [ProfileSetupController::class, 'update'])->middlew
 Route::get('profile', [ProfileController::class, 'show'])->middleware(['auth'])->name('profile.show');
 Route::get('profile/{user}', [ProfileController::class, 'show'])->middleware(['auth'])->name('profile.show.user');
 
+// Plant management pages
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('plants-browse', function () {
+        return Inertia::render('Plants/Index');
+    })->name('plants.browse');
+    
+    Route::get('my-garden', function () {
+        return Inertia::render('Plants/MyPlants');
+    })->name('my-plants.garden');
+});
+
 require __DIR__.'/settings.php';
+require __DIR__.'/plants.php';
 require __DIR__.'/auth.php';

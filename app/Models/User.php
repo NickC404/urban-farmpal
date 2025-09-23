@@ -87,4 +87,19 @@ class User extends Authenticatable
             'has_weather_station' => 'boolean',
         ];
     }
+
+    public function userPlants()
+    {
+        return $this->hasMany(UserPlant::class);
+    }
+
+    public function plantActivities()
+    {
+        return $this->hasMany(PlantActivity::class);
+    }
+
+    public function plantReminders()
+    {
+        return $this->hasMany(PlantReminder::class);
+    }
 }

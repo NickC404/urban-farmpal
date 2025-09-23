@@ -48,9 +48,14 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
-        title: 'My Gardens',
-        href: '#',
+        title: 'My Plants',
+        href: '/my-garden',
         icon: Sprout,
+    },
+    {
+        title: 'Plant Database',
+        href: '/plants-browse',
+        icon: Leaf,
     },
     {
         title: 'Planting Calendar',
@@ -71,11 +76,6 @@ const mainNavItems: NavItem[] = [
         title: 'Light Monitoring',
         href: '#',
         icon: Sun,
-    },
-    {
-        title: 'Plant Library',
-        href: '#',
-        icon: Leaf,
     },
 ];
 
@@ -108,7 +108,7 @@ const footerNavItems: NavItem[] = [
         <SidebarHeader class="border-b border-sidebar-border/70">
             <SidebarMenu>
                 <SidebarMenuItem>
-                    <SidebarMenuButton size="lg" as-child class="hover:bg-green-50 dark:hover:bg-green-900/20">
+                    <SidebarMenuButton size="lg" as-child class="hover:bg-accent/50 dark:hover:bg-accent/20">
                         <Link :href="dashboard()">
                             <AppLogo />
                         </Link>
@@ -133,7 +133,7 @@ const footerNavItems: NavItem[] = [
                 <div class="flex items-center justify-center">
                     <button
                         @click="cycleTheme"
-                        class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                        class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-accent/50 dark:hover:bg-accent/20"
                         :title="`Current: ${appearance} mode`"
                     >
                         <Sun v-if="appearance === 'light'" class="h-4 w-4" />

@@ -81,24 +81,18 @@ const stats = ref([
         value: '12',
         change: '+2 this month',
         icon: '🌱',
-        color: 'text-green-600',
-        bgColor: 'bg-green-50 dark:bg-green-900/20',
     },
     {
         title: 'Harvest This Week',
         value: '8.5 lbs',
         change: '+15% from last week',
         icon: '🥬',
-        color: 'text-blue-600',
-        bgColor: 'bg-blue-50 dark:bg-blue-900/20',
     },
     {
         title: 'Water Usage',
         value: '45 gal',
         change: '-10% more efficient',
         icon: '💧',
-        color: 'text-cyan-600',
-        bgColor: 'bg-cyan-50 dark:bg-cyan-900/20',
     },
 ]);
 
@@ -165,10 +159,10 @@ const upcomingTasks = ref([
         <div class="flex h-full flex-1 flex-col gap-6 overflow-x-auto rounded-xl p-6">
             <!-- Welcome Section -->
             <div class="mb-4">
-                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
+                <h1 class="text-3xl font-bold text-foreground">
                     Welcome to Urban FarmPal
                 </h1>
-                <p class="mt-2 text-gray-600 dark:text-gray-400">
+                <p class="mt-2 text-muted-foreground">
                     Monitor and manage your urban farming operations
                 </p>
             </div>
@@ -178,18 +172,17 @@ const upcomingTasks = ref([
                 <div
                     v-for="stat in stats"
                     :key="stat.title"
-                    class="rounded-xl border border-sidebar-border/70 p-6 dark:border-sidebar-border"
-                    :class="stat.bgColor"
+                    class="rounded-xl border border-border bg-card p-6"
                 >
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
+                            <p class="text-sm font-medium text-muted-foreground">
                                 {{ stat.title }}
                             </p>
-                            <p class="text-3xl font-bold" :class="stat.color">
+                            <p class="text-3xl font-bold text-primary">
                                 {{ stat.value }}
                             </p>
-                            <p class="text-sm text-gray-500 dark:text-gray-500">
+                            <p class="text-sm text-muted-foreground">
                                 {{ stat.change }}
                             </p>
                         </div>
@@ -199,27 +192,27 @@ const upcomingTasks = ref([
             </div>
 
             <!-- Plant Recommendations -->
-            <div v-if="user.growing_setup_completed" class="rounded-xl border border-sidebar-border/70 p-6 dark:border-sidebar-border">
-                <h2 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
+            <div v-if="user.growing_setup_completed" class="rounded-xl border border-border bg-card p-6">
+                <h2 class="mb-4 text-xl font-semibold text-card-foreground">
                     Recommended Plants for Your Setup
                 </h2>
                 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     <div 
                         v-for="plant in recommendedPlants" 
                         :key="plant.name"
-                        class="rounded-lg border border-gray-200 p-4 dark:border-gray-700"
+                        class="rounded-lg border border-border bg-muted/30 p-4"
                     >
                         <div class="flex items-center gap-3">
                             <div class="text-2xl">{{ plant.icon }}</div>
                             <div>
-                                <h3 class="font-medium text-gray-900 dark:text-white">{{ plant.name }}</h3>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">{{ plant.reason }}</p>
+                                <h3 class="font-medium text-foreground">{{ plant.name }}</h3>
+                                <p class="text-sm text-muted-foreground">{{ plant.reason }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="mt-4">
-                    <button class="text-sm text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300">
+                    <button class="text-sm text-primary hover:text-primary/80">
                         View All Recommendations →
                     </button>
                 </div>
@@ -228,8 +221,8 @@ const upcomingTasks = ref([
             <!-- Main Content Grid -->
             <div class="grid gap-6 lg:grid-cols-2">
                 <!-- Recent Activities -->
-                <div class="rounded-xl border border-sidebar-border/70 p-6 dark:border-sidebar-border">
-                    <h2 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
+                <div class="rounded-xl border border-border bg-card p-6">
+                    <h2 class="mb-4 text-xl font-semibold text-card-foreground">
                         Recent Activities
                     </h2>
                     <div class="space-y-4">
@@ -240,10 +233,10 @@ const upcomingTasks = ref([
                         >
                             <div class="text-2xl">{{ activity.icon }}</div>
                             <div class="flex-1">
-                                <p class="text-sm text-gray-900 dark:text-white">
+                                <p class="text-sm text-card-foreground">
                                     {{ activity.message }}
                                 </p>
-                                <p class="text-xs text-gray-500 dark:text-gray-500">
+                                <p class="text-xs text-muted-foreground">
                                     {{ activity.time }}
                                 </p>
                             </div>
@@ -252,30 +245,30 @@ const upcomingTasks = ref([
                 </div>
 
                 <!-- Upcoming Tasks -->
-                <div class="rounded-xl border border-sidebar-border/70 p-6 dark:border-sidebar-border">
-                    <h2 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
+                <div class="rounded-xl border border-border bg-card p-6">
+                    <h2 class="mb-4 text-xl font-semibold text-card-foreground">
                         Upcoming Tasks
                     </h2>
                     <div class="space-y-4">
                         <div
                             v-for="task in upcomingTasks"
                             :key="task.id"
-                            class="flex items-center justify-between rounded-lg border border-gray-200 p-3 dark:border-gray-700"
+                            class="flex items-center justify-between rounded-lg border border-border bg-muted/30 p-3"
                         >
                             <div class="flex-1">
-                                <p class="font-medium text-gray-900 dark:text-white">
+                                <p class="font-medium text-foreground">
                                     {{ task.task }}
                                 </p>
-                                <p class="text-sm text-gray-500 dark:text-gray-500">
+                                <p class="text-sm text-muted-foreground">
                                     {{ task.garden }} • Due {{ task.due }}
                                 </p>
                             </div>
                             <span
                                 class="rounded-full px-2 py-1 text-xs font-medium"
                                 :class="{
-                                    'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400': task.priority === 'high',
-                                    'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400': task.priority === 'medium',
-                                    'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400': task.priority === 'low',
+                                    'bg-destructive/10 text-destructive': task.priority === 'high',
+                                    'bg-chart-4/20 text-chart-4': task.priority === 'medium',
+                                    'bg-primary/10 text-primary': task.priority === 'low',
                                 }"
                             >
                                 {{ task.priority }}
@@ -286,12 +279,12 @@ const upcomingTasks = ref([
             </div>
 
             <!-- Quick Actions -->
-            <div class="rounded-xl border border-sidebar-border/70 p-6 dark:border-sidebar-border">
-                <h2 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
+            <div class="rounded-xl border border-border bg-card p-6">
+                <h2 class="mb-4 text-xl font-semibold text-card-foreground">
                     Quick Actions
                 </h2>
                 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    <button class="flex flex-col items-center gap-2 rounded-lg border border-gray-200 p-4 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800">
+                    <button class="flex flex-col items-center gap-2 rounded-lg border border-border bg-muted/30 p-4 transition-colors hover:bg-accent/50">
                         <div class="text-3xl">🌱</div>
                         <span class="text-sm font-medium">Add Garden</span>
                     </button>
@@ -299,7 +292,7 @@ const upcomingTasks = ref([
                     <!-- Conditional features based on growing setup -->
                     <button 
                         v-if="availableFeatures.lightingManagement"
-                        class="flex flex-col items-center gap-2 rounded-lg border border-gray-200 p-4 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
+                        class="flex flex-col items-center gap-2 rounded-lg border border-border bg-muted/30 p-4 transition-colors hover:bg-accent/50"
                     >
                         <div class="text-3xl">💡</div>
                         <span class="text-sm font-medium">Lighting Control</span>
@@ -307,7 +300,7 @@ const upcomingTasks = ref([
                     
                     <button 
                         v-if="availableFeatures.weatherIntegration"
-                        class="flex flex-col items-center gap-2 rounded-lg border border-gray-200 p-4 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
+                        class="flex flex-col items-center gap-2 rounded-lg border border-border bg-muted/30 p-4 transition-colors hover:bg-accent/50"
                     >
                         <div class="text-3xl">🌤️</div>
                         <span class="text-sm font-medium">Weather Data</span>
@@ -315,7 +308,7 @@ const upcomingTasks = ref([
                     
                     <button 
                         v-if="availableFeatures.phMonitoring"
-                        class="flex flex-col items-center gap-2 rounded-lg border border-gray-200 p-4 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
+                        class="flex flex-col items-center gap-2 rounded-lg border border-border bg-muted/30 p-4 transition-colors hover:bg-accent/50"
                     >
                         <div class="text-3xl">🧪</div>
                         <span class="text-sm font-medium">pH Monitor</span>
@@ -323,7 +316,7 @@ const upcomingTasks = ref([
                     
                     <button 
                         v-if="availableFeatures.nutrientMonitoring"
-                        class="flex flex-col items-center gap-2 rounded-lg border border-gray-200 p-4 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
+                        class="flex flex-col items-center gap-2 rounded-lg border border-border bg-muted/30 p-4 transition-colors hover:bg-accent/50"
                     >
                         <div class="text-3xl">📊</div>
                         <span class="text-sm font-medium">Nutrients</span>
@@ -331,7 +324,7 @@ const upcomingTasks = ref([
                     
                     <button 
                         v-if="availableFeatures.irrigationSystem"
-                        class="flex flex-col items-center gap-2 rounded-lg border border-gray-200 p-4 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
+                        class="flex flex-col items-center gap-2 rounded-lg border border-border bg-muted/30 p-4 transition-colors hover:bg-accent/50"
                     >
                         <div class="text-3xl">💧</div>
                         <span class="text-sm font-medium">Irrigation</span>
@@ -339,18 +332,18 @@ const upcomingTasks = ref([
                     
                     <button 
                         v-if="availableFeatures.climateControl"
-                        class="flex flex-col items-center gap-2 rounded-lg border border-gray-200 p-4 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
+                        class="flex flex-col items-center gap-2 rounded-lg border border-border bg-muted/30 p-4 transition-colors hover:bg-accent/50"
                     >
                         <div class="text-3xl">🌡️</div>
                         <span class="text-sm font-medium">Climate</span>
                     </button>
                     
-                    <button class="flex flex-col items-center gap-2 rounded-lg border border-gray-200 p-4 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800">
+                    <button class="flex flex-col items-center gap-2 rounded-lg border border-border bg-muted/30 p-4 transition-colors hover:bg-accent/50">
                         <div class="text-3xl">📝</div>
                         <span class="text-sm font-medium">Log Activity</span>
                     </button>
                     
-                    <button class="flex flex-col items-center gap-2 rounded-lg border border-gray-200 p-4 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800">
+                    <button class="flex flex-col items-center gap-2 rounded-lg border border-border bg-muted/30 p-4 transition-colors hover:bg-accent/50">
                         <div class="text-3xl">⚙️</div>
                         <span class="text-sm font-medium">Settings</span>
                     </button>
