@@ -3,12 +3,12 @@ import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFo
 * @see routes/web.php:27
 * @route '/my-garden'
 */
-export const garden = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: garden.url(options),
+export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: index.url(options),
     method: 'get',
 })
 
-garden.definition = {
+index.definition = {
     methods: ["get","head"],
     url: '/my-garden',
 } satisfies RouteDefinition<["get","head"]>
@@ -17,16 +17,16 @@ garden.definition = {
 * @see routes/web.php:27
 * @route '/my-garden'
 */
-garden.url = (options?: RouteQueryOptions) => {
-    return garden.definition.url + queryParams(options)
+index.url = (options?: RouteQueryOptions) => {
+    return index.definition.url + queryParams(options)
 }
 
 /**
 * @see routes/web.php:27
 * @route '/my-garden'
 */
-garden.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: garden.url(options),
+index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: index.url(options),
     method: 'get',
 })
 
@@ -34,8 +34,8 @@ garden.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 * @see routes/web.php:27
 * @route '/my-garden'
 */
-garden.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: garden.url(options),
+index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: index.url(options),
     method: 'head',
 })
 
@@ -43,8 +43,8 @@ garden.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 * @see routes/web.php:27
 * @route '/my-garden'
 */
-const gardenForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: garden.url(options),
+const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: index.url(options),
     method: 'get',
 })
 
@@ -52,8 +52,8 @@ const gardenForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => 
 * @see routes/web.php:27
 * @route '/my-garden'
 */
-gardenForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: garden.url(options),
+indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: index.url(options),
     method: 'get',
 })
 
@@ -61,8 +61,8 @@ gardenForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 * @see routes/web.php:27
 * @route '/my-garden'
 */
-gardenForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-    action: garden.url({
+indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    action: index.url({
         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
             _method: 'HEAD',
             ...(options?.query ?? options?.mergeQuery ?? {}),
@@ -71,10 +71,10 @@ gardenForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
     method: 'get',
 })
 
-garden.form = gardenForm
+index.form = indexForm
 
-const myPlants = {
-    garden: Object.assign(garden, garden),
+const garden = {
+    index: Object.assign(index, index),
 }
 
-export default myPlants
+export default garden

@@ -12,6 +12,7 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
+import { index as calendar } from '@/routes/calendar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
 import { 
@@ -48,7 +49,7 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
-        title: 'My Plants',
+        title: 'My Garden',
         href: '/my-garden',
         icon: Sprout,
     },
@@ -59,7 +60,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Planting Calendar',
-        href: '#',
+        href: calendar().url,
         icon: Calendar,
     },
     {

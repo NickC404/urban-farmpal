@@ -1,7 +1,7 @@
 <template>
   <AppLayout title="Plant Database">
     <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+      <h2 class="font-semibold text-xl text-foreground leading-tight">
         Plant Database
       </h2>
     </template>
@@ -9,29 +9,29 @@
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <!-- Search and Filters -->
-        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mb-6">
+        <div class="bg-card border border-border overflow-hidden shadow-sm sm:rounded-lg mb-6">
           <div class="p-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label class="block text-sm font-medium text-card-foreground mb-2">
                   Search Plants
                 </label>
                 <input
                   v-model="filters.search"
                   type="text"
                   placeholder="Search by name..."
-                  class="w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+                  class="w-full rounded-md border-border bg-background text-foreground focus:border-ring focus:ring-ring"
                   @input="debouncedSearch"
                 />
               </div>
               
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label class="block text-sm font-medium text-card-foreground mb-2">
                   Category
                 </label>
                 <select
                   v-model="filters.category"
-                  class="w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+                  class="w-full rounded-md border-border bg-background text-foreground focus:border-ring focus:ring-ring"
                   @change="loadPlants"
                 >
                   <option value="">All Categories</option>
@@ -43,12 +43,12 @@
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label class="block text-sm font-medium text-card-foreground mb-2">
                   Difficulty
                 </label>
                 <select
                   v-model="filters.difficulty"
-                  class="w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+                  class="w-full rounded-md border-border bg-background text-foreground focus:border-ring focus:ring-ring"
                   @change="loadPlants"
                 >
                   <option value="">All Levels</option>
@@ -59,12 +59,12 @@
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label class="block text-sm font-medium text-card-foreground mb-2">
                   Growing Method
                 </label>
                 <select
                   v-model="filters.growing_method"
-                  class="w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+                  class="w-full rounded-md border-border bg-background text-foreground focus:border-ring focus:ring-ring"
                   @change="loadPlants"
                 >
                   <option value="">All Methods</option>
@@ -81,10 +81,10 @@
                 <button
                   @click="showCompatibleOnly = !showCompatibleOnly; loadPlants()"
                   :class="[
-                    'px-4 py-2 rounded-md text-sm font-medium',
+                    'px-4 py-2 rounded-md text-sm font-medium transition-colors',
                     showCompatibleOnly
-                      ? 'bg-green-600 text-white'
-                      : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
                   ]"
                 >
                   Show Compatible Only
@@ -92,10 +92,10 @@
               </div>
 
               <div class="flex items-center space-x-2">
-                <label class="text-sm text-gray-700 dark:text-gray-300">Sort by:</label>
+                <label class="text-sm text-card-foreground">Sort by:</label>
                 <select
                   v-model="filters.sort_by"
-                  class="rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+                  class="rounded-md border-border bg-background text-foreground focus:border-ring focus:ring-ring"
                   @change="loadPlants"
                 >
                   <option value="name">Name</option>
@@ -110,20 +110,20 @@
 
         <!-- Plant Grid -->
         <div v-if="loading" class="text-center py-8">
-          <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
-          <p class="mt-2 text-gray-600 dark:text-gray-400">Loading plants...</p>
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+          <p class="mt-2 text-muted-foreground">Loading plants...</p>
         </div>
 
         <div v-else-if="plants.data && plants.data.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div
             v-for="plant in plants.data"
             :key="plant.id"
-            class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg hover:shadow-md transition-shadow cursor-pointer"
+            class="bg-card border border-border overflow-hidden shadow-sm sm:rounded-lg hover:shadow-md transition-shadow cursor-pointer"
             @click="selectPlant(plant)"
           >
             <div class="p-6">
               <div class="flex justify-between items-start mb-3">
-                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                <h3 class="text-lg font-medium text-card-foreground">
                   {{ plant.name }}
                 </h3>
                 <span :class="getDifficultyColor(plant.difficulty_level)" class="px-2 py-1 text-xs rounded-full">
@@ -131,43 +131,43 @@
                 </span>
               </div>
 
-              <p class="text-sm text-gray-600 dark:text-gray-400 italic mb-2">
+              <p class="text-sm text-muted-foreground italic mb-2">
                 {{ plant.scientific_name }}
               </p>
 
-              <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
+              <p class="text-sm text-card-foreground mb-4 line-clamp-3">
                 {{ plant.description }}
               </p>
 
               <div class="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <span class="font-medium text-gray-900 dark:text-gray-100">Category:</span>
-                  <span class="text-gray-600 dark:text-gray-400 capitalize ml-1">{{ plant.category }}</span>
+                  <span class="font-medium text-card-foreground">Category:</span>
+                  <span class="text-muted-foreground capitalize ml-1">{{ plant.category }}</span>
                 </div>
                 <div>
-                  <span class="font-medium text-gray-900 dark:text-gray-100">Harvest:</span>
-                  <span class="text-gray-600 dark:text-gray-400 ml-1">
+                  <span class="font-medium text-card-foreground">Harvest:</span>
+                  <span class="text-muted-foreground ml-1">
                     {{ plant.days_to_harvest ? `${plant.days_to_harvest} days` : 'N/A' }}
                   </span>
                 </div>
                 <div>
-                  <span class="font-medium text-gray-900 dark:text-gray-100">Sun:</span>
-                  <span class="text-gray-600 dark:text-gray-400 capitalize ml-1">
+                  <span class="font-medium text-card-foreground">Sun:</span>
+                  <span class="text-muted-foreground capitalize ml-1">
                     {{ plant.sun_requirement?.replace('_', ' ') }}
                   </span>
                 </div>
                 <div>
-                  <span class="font-medium text-gray-900 dark:text-gray-100">Water:</span>
-                  <span class="text-gray-600 dark:text-gray-400 capitalize ml-1">{{ plant.water_requirement }}</span>
+                  <span class="font-medium text-card-foreground">Water:</span>
+                  <span class="text-muted-foreground capitalize ml-1">{{ plant.water_requirement }}</span>
                 </div>
               </div>
 
-              <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div class="mt-4 pt-4 border-t border-border">
                 <button
                   @click.stop="addToGarden(plant)"
-                  class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md text-sm transition-colors"
+                  class="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-2 px-4 rounded-md text-sm transition-colors"
                 >
-                  Add to My Garden
+                  Add to Garden
                 </button>
               </div>
             </div>
@@ -175,12 +175,12 @@
         </div>
 
         <div v-else class="text-center py-12">
-          <div class="text-gray-400 dark:text-gray-600 text-lg">
+          <div class="text-muted-foreground text-lg">
             No plants found matching your criteria.
           </div>
           <button
             @click="clearFilters"
-            class="mt-4 text-indigo-600 hover:text-indigo-500 font-medium"
+            class="mt-4 text-primary hover:text-primary/80 font-medium"
           >
             Clear filters
           </button>
@@ -188,26 +188,26 @@
 
         <!-- Pagination -->
         <div v-if="plants.data && plants.data.length > 0" class="mt-8">
-          <nav class="flex items-center justify-between border-t border-gray-200 dark:border-gray-700 px-4 py-3 sm:px-6">
+          <nav class="flex items-center justify-between border-t border-border px-4 py-3 sm:px-6">
             <div class="flex flex-1 justify-between sm:hidden">
               <button
                 @click="loadPage(plants.current_page - 1)"
                 :disabled="plants.current_page <= 1"
-                class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-foreground bg-background border border-border rounded-md hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Previous
               </button>
               <button
                 @click="loadPage(plants.current_page + 1)"
                 :disabled="plants.current_page >= plants.last_page"
-                class="relative ml-3 inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                class="relative ml-3 inline-flex items-center px-4 py-2 text-sm font-medium text-foreground bg-background border border-border rounded-md hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Next
               </button>
             </div>
             <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
               <div>
-                <p class="text-sm text-gray-700 dark:text-gray-300">
+                <p class="text-sm text-muted-foreground">
                   Showing {{ plants.from }} to {{ plants.to }} of {{ plants.total }} results
                 </p>
               </div>
@@ -216,7 +216,7 @@
                   <button
                     @click="loadPage(plants.current_page - 1)"
                     :disabled="plants.current_page <= 1"
-                    class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                    class="relative inline-flex items-center rounded-l-md px-2 py-2 text-muted-foreground ring-1 ring-inset ring-border hover:bg-muted focus:z-20 focus:outline-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Previous
                   </button>
@@ -227,8 +227,8 @@
                     :class="[
                       'relative inline-flex items-center px-4 py-2 text-sm font-semibold',
                       page === plants.current_page
-                        ? 'z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                        : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0'
+                        ? 'z-10 bg-primary text-primary-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+                        : 'text-foreground ring-1 ring-inset ring-border hover:bg-muted focus:z-20 focus:outline-offset-0'
                     ]"
                   >
                     {{ page }}
@@ -236,7 +236,7 @@
                   <button
                     @click="loadPage(plants.current_page + 1)"
                     :disabled="plants.current_page >= plants.last_page"
-                    class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                    class="relative inline-flex items-center rounded-r-md px-2 py-2 text-muted-foreground ring-1 ring-inset ring-border hover:bg-muted focus:z-20 focus:outline-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Next
                   </button>
@@ -417,13 +417,13 @@ const clearFilters = () => {
 const getDifficultyColor = (level: string) => {
   switch (level) {
     case 'beginner':
-      return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+      return 'bg-primary/10 text-primary'
     case 'intermediate':
-      return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
+      return 'bg-chart-4/20 text-chart-4'
     case 'advanced':
-      return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+      return 'bg-destructive/10 text-destructive'
     default:
-      return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200'
+      return 'bg-muted text-muted-foreground'
   }
 }
 

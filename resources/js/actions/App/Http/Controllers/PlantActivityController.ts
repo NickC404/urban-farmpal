@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\PlantActivityController::index
-* @see app/Http/Controllers/PlantActivityController.php:15
+* @see app/Http/Controllers/PlantActivityController.php:17
 * @route '/plant-activities'
 */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::index
-* @see app/Http/Controllers/PlantActivityController.php:15
+* @see app/Http/Controllers/PlantActivityController.php:17
 * @route '/plant-activities'
 */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::index
-* @see app/Http/Controllers/PlantActivityController.php:15
+* @see app/Http/Controllers/PlantActivityController.php:17
 * @route '/plant-activities'
 */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -35,7 +35,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::index
-* @see app/Http/Controllers/PlantActivityController.php:15
+* @see app/Http/Controllers/PlantActivityController.php:17
 * @route '/plant-activities'
 */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -45,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::index
-* @see app/Http/Controllers/PlantActivityController.php:15
+* @see app/Http/Controllers/PlantActivityController.php:17
 * @route '/plant-activities'
 */
 const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -55,7 +55,7 @@ const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => (
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::index
-* @see app/Http/Controllers/PlantActivityController.php:15
+* @see app/Http/Controllers/PlantActivityController.php:17
 * @route '/plant-activities'
 */
 indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -65,7 +65,7 @@ indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::index
-* @see app/Http/Controllers/PlantActivityController.php:15
+* @see app/Http/Controllers/PlantActivityController.php:17
 * @route '/plant-activities'
 */
 indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -82,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::store
-* @see app/Http/Controllers/PlantActivityController.php:49
+* @see app/Http/Controllers/PlantActivityController.php:51
 * @route '/plant-activities'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -97,7 +97,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::store
-* @see app/Http/Controllers/PlantActivityController.php:49
+* @see app/Http/Controllers/PlantActivityController.php:51
 * @route '/plant-activities'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -106,7 +106,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::store
-* @see app/Http/Controllers/PlantActivityController.php:49
+* @see app/Http/Controllers/PlantActivityController.php:51
 * @route '/plant-activities'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -116,7 +116,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::store
-* @see app/Http/Controllers/PlantActivityController.php:49
+* @see app/Http/Controllers/PlantActivityController.php:51
 * @route '/plant-activities'
 */
 const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -126,7 +126,7 @@ const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => 
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::store
-* @see app/Http/Controllers/PlantActivityController.php:49
+* @see app/Http/Controllers/PlantActivityController.php:51
 * @route '/plant-activities'
 */
 storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -138,7 +138,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::show
-* @see app/Http/Controllers/PlantActivityController.php:90
+* @see app/Http/Controllers/PlantActivityController.php:93
 * @route '/plant-activities/{plantActivity}'
 */
 export const show = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -153,7 +153,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::show
-* @see app/Http/Controllers/PlantActivityController.php:90
+* @see app/Http/Controllers/PlantActivityController.php:93
 * @route '/plant-activities/{plantActivity}'
 */
 show.url = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -186,7 +186,7 @@ show.url = (args: { plantActivity: number | { id: number } } | [plantActivity: n
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::show
-* @see app/Http/Controllers/PlantActivityController.php:90
+* @see app/Http/Controllers/PlantActivityController.php:93
 * @route '/plant-activities/{plantActivity}'
 */
 show.get = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -196,7 +196,7 @@ show.get = (args: { plantActivity: number | { id: number } } | [plantActivity: n
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::show
-* @see app/Http/Controllers/PlantActivityController.php:90
+* @see app/Http/Controllers/PlantActivityController.php:93
 * @route '/plant-activities/{plantActivity}'
 */
 show.head = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -206,7 +206,7 @@ show.head = (args: { plantActivity: number | { id: number } } | [plantActivity: 
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::show
-* @see app/Http/Controllers/PlantActivityController.php:90
+* @see app/Http/Controllers/PlantActivityController.php:93
 * @route '/plant-activities/{plantActivity}'
 */
 const showForm = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -216,7 +216,7 @@ const showForm = (args: { plantActivity: number | { id: number } } | [plantActiv
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::show
-* @see app/Http/Controllers/PlantActivityController.php:90
+* @see app/Http/Controllers/PlantActivityController.php:93
 * @route '/plant-activities/{plantActivity}'
 */
 showForm.get = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -226,7 +226,7 @@ showForm.get = (args: { plantActivity: number | { id: number } } | [plantActivit
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::show
-* @see app/Http/Controllers/PlantActivityController.php:90
+* @see app/Http/Controllers/PlantActivityController.php:93
 * @route '/plant-activities/{plantActivity}'
 */
 showForm.head = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -243,7 +243,7 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::update
-* @see app/Http/Controllers/PlantActivityController.php:105
+* @see app/Http/Controllers/PlantActivityController.php:108
 * @route '/plant-activities/{plantActivity}'
 */
 export const update = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -258,7 +258,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::update
-* @see app/Http/Controllers/PlantActivityController.php:105
+* @see app/Http/Controllers/PlantActivityController.php:108
 * @route '/plant-activities/{plantActivity}'
 */
 update.url = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -291,7 +291,7 @@ update.url = (args: { plantActivity: number | { id: number } } | [plantActivity:
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::update
-* @see app/Http/Controllers/PlantActivityController.php:105
+* @see app/Http/Controllers/PlantActivityController.php:108
 * @route '/plant-activities/{plantActivity}'
 */
 update.put = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -301,7 +301,7 @@ update.put = (args: { plantActivity: number | { id: number } } | [plantActivity:
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::update
-* @see app/Http/Controllers/PlantActivityController.php:105
+* @see app/Http/Controllers/PlantActivityController.php:108
 * @route '/plant-activities/{plantActivity}'
 */
 const updateForm = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -316,7 +316,7 @@ const updateForm = (args: { plantActivity: number | { id: number } } | [plantAct
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::update
-* @see app/Http/Controllers/PlantActivityController.php:105
+* @see app/Http/Controllers/PlantActivityController.php:108
 * @route '/plant-activities/{plantActivity}'
 */
 updateForm.put = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -333,7 +333,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::destroy
-* @see app/Http/Controllers/PlantActivityController.php:139
+* @see app/Http/Controllers/PlantActivityController.php:142
 * @route '/plant-activities/{plantActivity}'
 */
 export const destroy = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -348,7 +348,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::destroy
-* @see app/Http/Controllers/PlantActivityController.php:139
+* @see app/Http/Controllers/PlantActivityController.php:142
 * @route '/plant-activities/{plantActivity}'
 */
 destroy.url = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -381,7 +381,7 @@ destroy.url = (args: { plantActivity: number | { id: number } } | [plantActivity
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::destroy
-* @see app/Http/Controllers/PlantActivityController.php:139
+* @see app/Http/Controllers/PlantActivityController.php:142
 * @route '/plant-activities/{plantActivity}'
 */
 destroy.delete = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -391,7 +391,7 @@ destroy.delete = (args: { plantActivity: number | { id: number } } | [plantActiv
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::destroy
-* @see app/Http/Controllers/PlantActivityController.php:139
+* @see app/Http/Controllers/PlantActivityController.php:142
 * @route '/plant-activities/{plantActivity}'
 */
 const destroyForm = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -406,7 +406,7 @@ const destroyForm = (args: { plantActivity: number | { id: number } } | [plantAc
 
 /**
 * @see \App\Http\Controllers\PlantActivityController::destroy
-* @see app/Http/Controllers/PlantActivityController.php:139
+* @see app/Http/Controllers/PlantActivityController.php:142
 * @route '/plant-activities/{plantActivity}'
 */
 destroyForm.delete = (args: { plantActivity: number | { id: number } } | [plantActivity: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

@@ -7,6 +7,7 @@ import PlantController from './PlantController'
 import UserPlantController from './UserPlantController'
 import PlantActivityController from './PlantActivityController'
 import PlantReminderController from './PlantReminderController'
+import CalendarController from './CalendarController'
 
 const Controllers = {
     Auth: Object.assign(Auth, Auth),
@@ -18,6 +19,7 @@ const Controllers = {
     UserPlantController: Object.assign(UserPlantController, UserPlantController),
     PlantActivityController: Object.assign(PlantActivityController, PlantActivityController),
     PlantReminderController: Object.assign(PlantReminderController, PlantReminderController),
+    CalendarController: Object.assign(CalendarController, CalendarController),
 }
 
 export default Controllers

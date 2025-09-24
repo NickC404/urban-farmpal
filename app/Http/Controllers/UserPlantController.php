@@ -60,7 +60,7 @@ class UserPlantController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): JsonResponse
+    public function store(Request $request)
     {
         $user = $request->user();
 
@@ -94,7 +94,8 @@ class UserPlantController extends Controller
 
         $userPlant->load(['plant', 'activities', 'reminders']);
 
-        return response()->json($userPlant, 201);
+        // Return Inertia response - redirect back to my-garden page with success message
+        return redirect()->route('garden.index')->with('success', 'Plant added to your garden successfully!');
     }
 
     /**

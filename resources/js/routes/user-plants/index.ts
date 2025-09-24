@@ -82,7 +82,7 @@ index.form = indexForm
 
 /**
 * @see \App\Http\Controllers\UserPlantController::dashboard
-* @see app/Http/Controllers/UserPlantController.php:181
+* @see app/Http/Controllers/UserPlantController.php:182
 * @route '/my-plants/dashboard'
 */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -97,7 +97,7 @@ dashboard.definition = {
 
 /**
 * @see \App\Http\Controllers\UserPlantController::dashboard
-* @see app/Http/Controllers/UserPlantController.php:181
+* @see app/Http/Controllers/UserPlantController.php:182
 * @route '/my-plants/dashboard'
 */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -106,7 +106,7 @@ dashboard.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\UserPlantController::dashboard
-* @see app/Http/Controllers/UserPlantController.php:181
+* @see app/Http/Controllers/UserPlantController.php:182
 * @route '/my-plants/dashboard'
 */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -116,7 +116,7 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\UserPlantController::dashboard
-* @see app/Http/Controllers/UserPlantController.php:181
+* @see app/Http/Controllers/UserPlantController.php:182
 * @route '/my-plants/dashboard'
 */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -126,7 +126,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\UserPlantController::dashboard
-* @see app/Http/Controllers/UserPlantController.php:181
+* @see app/Http/Controllers/UserPlantController.php:182
 * @route '/my-plants/dashboard'
 */
 const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -136,7 +136,7 @@ const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> 
 
 /**
 * @see \App\Http\Controllers\UserPlantController::dashboard
-* @see app/Http/Controllers/UserPlantController.php:181
+* @see app/Http/Controllers/UserPlantController.php:182
 * @route '/my-plants/dashboard'
 */
 dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -146,7 +146,7 @@ dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =>
 
 /**
 * @see \App\Http\Controllers\UserPlantController::dashboard
-* @see app/Http/Controllers/UserPlantController.php:181
+* @see app/Http/Controllers/UserPlantController.php:182
 * @route '/my-plants/dashboard'
 */
 dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -219,7 +219,7 @@ store.form = storeForm
 
 /**
 * @see \App\Http\Controllers\UserPlantController::show
-* @see app/Http/Controllers/UserPlantController.php:103
+* @see app/Http/Controllers/UserPlantController.php:104
 * @route '/my-plants/{userPlant}'
 */
 export const show = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -234,7 +234,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\UserPlantController::show
-* @see app/Http/Controllers/UserPlantController.php:103
+* @see app/Http/Controllers/UserPlantController.php:104
 * @route '/my-plants/{userPlant}'
 */
 show.url = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -267,7 +267,7 @@ show.url = (args: { userPlant: number | { id: number } } | [userPlant: number | 
 
 /**
 * @see \App\Http\Controllers\UserPlantController::show
-* @see app/Http/Controllers/UserPlantController.php:103
+* @see app/Http/Controllers/UserPlantController.php:104
 * @route '/my-plants/{userPlant}'
 */
 show.get = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -277,7 +277,7 @@ show.get = (args: { userPlant: number | { id: number } } | [userPlant: number | 
 
 /**
 * @see \App\Http\Controllers\UserPlantController::show
-* @see app/Http/Controllers/UserPlantController.php:103
+* @see app/Http/Controllers/UserPlantController.php:104
 * @route '/my-plants/{userPlant}'
 */
 show.head = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -287,7 +287,7 @@ show.head = (args: { userPlant: number | { id: number } } | [userPlant: number |
 
 /**
 * @see \App\Http\Controllers\UserPlantController::show
-* @see app/Http/Controllers/UserPlantController.php:103
+* @see app/Http/Controllers/UserPlantController.php:104
 * @route '/my-plants/{userPlant}'
 */
 const showForm = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -297,7 +297,7 @@ const showForm = (args: { userPlant: number | { id: number } } | [userPlant: num
 
 /**
 * @see \App\Http\Controllers\UserPlantController::show
-* @see app/Http/Controllers/UserPlantController.php:103
+* @see app/Http/Controllers/UserPlantController.php:104
 * @route '/my-plants/{userPlant}'
 */
 showForm.get = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -307,7 +307,7 @@ showForm.get = (args: { userPlant: number | { id: number } } | [userPlant: numbe
 
 /**
 * @see \App\Http\Controllers\UserPlantController::show
-* @see app/Http/Controllers/UserPlantController.php:103
+* @see app/Http/Controllers/UserPlantController.php:104
 * @route '/my-plants/{userPlant}'
 */
 showForm.head = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -324,7 +324,7 @@ show.form = showForm
 
 /**
 * @see \App\Http\Controllers\UserPlantController::update
-* @see app/Http/Controllers/UserPlantController.php:118
+* @see app/Http/Controllers/UserPlantController.php:119
 * @route '/my-plants/{userPlant}'
 */
 export const update = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -339,7 +339,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\UserPlantController::update
-* @see app/Http/Controllers/UserPlantController.php:118
+* @see app/Http/Controllers/UserPlantController.php:119
 * @route '/my-plants/{userPlant}'
 */
 update.url = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -372,7 +372,7 @@ update.url = (args: { userPlant: number | { id: number } } | [userPlant: number 
 
 /**
 * @see \App\Http\Controllers\UserPlantController::update
-* @see app/Http/Controllers/UserPlantController.php:118
+* @see app/Http/Controllers/UserPlantController.php:119
 * @route '/my-plants/{userPlant}'
 */
 update.put = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -382,7 +382,7 @@ update.put = (args: { userPlant: number | { id: number } } | [userPlant: number 
 
 /**
 * @see \App\Http\Controllers\UserPlantController::update
-* @see app/Http/Controllers/UserPlantController.php:118
+* @see app/Http/Controllers/UserPlantController.php:119
 * @route '/my-plants/{userPlant}'
 */
 const updateForm = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -397,7 +397,7 @@ const updateForm = (args: { userPlant: number | { id: number } } | [userPlant: n
 
 /**
 * @see \App\Http\Controllers\UserPlantController::update
-* @see app/Http/Controllers/UserPlantController.php:118
+* @see app/Http/Controllers/UserPlantController.php:119
 * @route '/my-plants/{userPlant}'
 */
 updateForm.put = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -414,7 +414,7 @@ update.form = updateForm
 
 /**
 * @see \App\Http\Controllers\UserPlantController::destroy
-* @see app/Http/Controllers/UserPlantController.php:158
+* @see app/Http/Controllers/UserPlantController.php:159
 * @route '/my-plants/{userPlant}'
 */
 export const destroy = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -429,7 +429,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\UserPlantController::destroy
-* @see app/Http/Controllers/UserPlantController.php:158
+* @see app/Http/Controllers/UserPlantController.php:159
 * @route '/my-plants/{userPlant}'
 */
 destroy.url = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -462,7 +462,7 @@ destroy.url = (args: { userPlant: number | { id: number } } | [userPlant: number
 
 /**
 * @see \App\Http\Controllers\UserPlantController::destroy
-* @see app/Http/Controllers/UserPlantController.php:158
+* @see app/Http/Controllers/UserPlantController.php:159
 * @route '/my-plants/{userPlant}'
 */
 destroy.delete = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -472,7 +472,7 @@ destroy.delete = (args: { userPlant: number | { id: number } } | [userPlant: num
 
 /**
 * @see \App\Http\Controllers\UserPlantController::destroy
-* @see app/Http/Controllers/UserPlantController.php:158
+* @see app/Http/Controllers/UserPlantController.php:159
 * @route '/my-plants/{userPlant}'
 */
 const destroyForm = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -487,7 +487,7 @@ const destroyForm = (args: { userPlant: number | { id: number } } | [userPlant: 
 
 /**
 * @see \App\Http\Controllers\UserPlantController::destroy
-* @see app/Http/Controllers/UserPlantController.php:158
+* @see app/Http/Controllers/UserPlantController.php:159
 * @route '/my-plants/{userPlant}'
 */
 destroyForm.delete = (args: { userPlant: number | { id: number } } | [userPlant: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

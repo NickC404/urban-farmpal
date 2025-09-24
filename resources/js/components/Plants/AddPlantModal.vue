@@ -7,7 +7,7 @@
                     <div class="w-full">
                       <div class="flex justify-between items-center mb-4">
                         <DialogTitle class="text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100">
-                          Add {{ plant?.name }} to Garden
+                          Add {{ plant?.name }}
                         </DialogTitle>
                       </div>
 
@@ -178,7 +178,7 @@
                       </svg>
                       Adding...
                     </span>
-                    <span v-else>Add to Garden</span>
+                    <span v-else>Add Plant</span>
                   </button>
                   <button
                     type="button"

@@ -26,9 +26,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     
     Route::get('my-garden', function () {
         return Inertia::render('Plants/MyPlants');
-    })->name('my-plants.garden');
+    })->name('garden.index');
 });
 
 require __DIR__.'/settings.php';
 require __DIR__.'/plants.php';
+require __DIR__.'/calendar.php';
 require __DIR__.'/auth.php';

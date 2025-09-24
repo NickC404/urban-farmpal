@@ -6,6 +6,8 @@ use App\Models\PlantActivity;
 use App\Models\UserPlant;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class PlantActivityController extends Controller
 {
@@ -46,7 +48,7 @@ class PlantActivityController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): JsonResponse
+    public function store(Request $request)
     {
         $user = $request->user();
 
@@ -81,7 +83,8 @@ class PlantActivityController extends Controller
 
         $activity->load(['userPlant.plant']);
 
-        return response()->json($activity, 201);
+        // Return Inertia response - redirect back to my-garden page with success message
+        return redirect()->route('garden.index')->with('success', 'Activity logged successfully!');
     }
 
     /**

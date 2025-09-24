@@ -77,7 +77,7 @@ const recommendedPlants = computed(() => {
 // Mock data for the dashboard
 const stats = ref([
     {
-        title: 'Active Gardens',
+        title: 'Active Plants',
         value: '12',
         change: '+2 this month',
         icon: '🌱',
@@ -100,14 +100,14 @@ const recentActivities = ref([
     {
         id: 1,
         type: 'harvest',
-        message: 'Harvested 2 lbs of lettuce from Garden A',
+        message: 'Harvested 2 lbs of lettuce',
         time: '2 hours ago',
         icon: '🥬',
     },
     {
         id: 2,
         type: 'planting',
-        message: 'Planted new tomato seeds in Garden B',
+        message: 'Planted new tomato seeds',
         time: '1 day ago',
         icon: '🍅',
     },
@@ -131,21 +131,21 @@ const upcomingTasks = ref([
     {
         id: 1,
         task: 'Harvest ripe tomatoes',
-        garden: 'Garden A',
+        location: 'Container 1',
         due: 'Today',
         priority: 'high',
     },
     {
         id: 2,
         task: 'Check soil moisture',
-        garden: 'Garden B',
+        location: 'Raised bed',
         due: 'Tomorrow',
         priority: 'medium',
     },
     {
         id: 3,
         task: 'Plant new herbs',
-        garden: 'Garden C',
+        location: 'Window box',
         due: 'This weekend',
         priority: 'low',
     },
@@ -260,7 +260,7 @@ const upcomingTasks = ref([
                                     {{ task.task }}
                                 </p>
                                 <p class="text-sm text-muted-foreground">
-                                    {{ task.garden }} • Due {{ task.due }}
+                                    {{ task.location }} • Due {{ task.due }}
                                 </p>
                             </div>
                             <span
@@ -284,10 +284,6 @@ const upcomingTasks = ref([
                     Quick Actions
                 </h2>
                 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    <button class="flex flex-col items-center gap-2 rounded-lg border border-border bg-muted/30 p-4 transition-colors hover:bg-accent/50">
-                        <div class="text-3xl">🌱</div>
-                        <span class="text-sm font-medium">Add Garden</span>
-                    </button>
                     
                     <!-- Conditional features based on growing setup -->
                     <button 
